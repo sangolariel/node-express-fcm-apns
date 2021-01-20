@@ -3,7 +3,10 @@ import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import App from './app';
 import * as config from './configs/ormconfig';
-import PostController from './controllers/post.controller';
+// import PostController from './controllers/post.controller';
+import AuthenticationController from './controllers/authentication.controller';
+import CategoryController from './controllers/category.controller';
+import AddressController from './controllers/address.controller';
 import validateEnv from './utils/validateEnv';
 
 validateEnv();
@@ -18,7 +21,10 @@ validateEnv();
   }
   const app = new App(
     [
-      new PostController(),
+      // new PostController(),
+      new AuthenticationController(),
+      new AddressController(),
+      new CategoryController(),
     ],
   );
   app.listen();
